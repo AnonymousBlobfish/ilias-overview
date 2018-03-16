@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const restaurantSchema = mongoose.Schema({
   id: {
-    type: String,
+    type: Number,
     unique: true,
   },
   name: String,
@@ -15,6 +15,7 @@ const restaurantSchema = mongoose.Schema({
   zagatService: Number,
   longDescription: String,
 });
+
 
 const RestaurantModel = mongoose.model('Restaurant', restaurantSchema);
 

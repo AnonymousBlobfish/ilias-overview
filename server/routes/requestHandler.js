@@ -1,4 +1,5 @@
-const db = require('./../../db/db.js');
+// const db = require('./../../db/db.js');
+const db = require('./../../db/dbSQL.js');
 
 const actions = {
   GET: function respondToGETRequest(req, res) {
@@ -6,6 +7,7 @@ const actions = {
       if (err) {
         res.send(err);
       } else {
+        console.log(result);
         res.send(result);
       }
     });

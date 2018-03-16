@@ -63,3 +63,7 @@ coverage/
 #webpack output
 bundle.js
 bundle.js.map
+
+JsonFiles
+BigData.csv
+10MilEntriesBIG.json
