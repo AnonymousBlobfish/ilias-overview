@@ -3,10 +3,10 @@ const faker = require('faker');
 
 
 const dbConnection = mysql.createConnection({
-  host: 'localhost',
+  host: '18.144.75.121',
   user: 'root',
   password: '',
-  database: 'WeGotData',
+  database: 'WeGotDataTEST',
 });
 
 dbConnection.connect((err) => {
@@ -30,6 +30,8 @@ const createFakeEntry = (id) => {
   return fakerEntry;
 };
 
+// create 10million entries by generating random entries.
+// insert 10.000 entries at a time with INSERT
 const postCategory = (j) => {
   if (j < 1001) {
     const entries = [];

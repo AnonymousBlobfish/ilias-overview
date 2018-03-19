@@ -5,15 +5,15 @@ USE WeGotDataTEST;
 
 CREATE TABLE restaurantstest (
   id INT,
-  name VARCHAR(100),
+  name VARCHAR(50),
   tagline VARCHAR(50),
-  type VARCHAR(50),
-  vicinity VARCHAR(50),
+  type VARCHAR(20),
+  vicinity VARCHAR(40),
   priceLevel INT,
   zagatFood INT,
   zagatDecor INT,
   zagatService INT,
-  longDescription VARCHAR(2000),
+  longDescription VARCHAR(1200),
   PRIMARY KEY (id)
 );
 
