@@ -3,7 +3,7 @@ const faker = require('faker');
 
 
 const dbConnection = mysql.createConnection({
-  host: '18.144.75.121',
+  host: '52.53.192.101',
   user: 'root',
   password: '',
   database: 'WeGotDataTEST',

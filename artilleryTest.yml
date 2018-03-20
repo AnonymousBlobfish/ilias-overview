@@ -1,13 +1,8 @@
 config:
-  target: "http://54.215.228.139:80"
-  http: 
-    pool: 200 
+  target: "http://13.56.150.174"
   phases:
-    - duration: 30
-      arrivalRate: 1
-      rampTo: 60
-    - duration: 30
-      arrivalRate: 60
+    - duration: 20
+      arrivalRate: 20
   processor: "./my-functions.js"
 
 scenarios:
@@ -16,7 +11,7 @@ scenarios:
       - function: "generateRandomData"
       - loop: 
         - get:
-            url: "/restaurants/{{$randomNumber(1,10000000)}}/"
-        count: 200
+            url: "/restaurants/{{ id }}/"
+        count: 100
       # Print the data we're sending while debugging the script:
       # - log: "Sent a request to /restaurants with {{ id }}"
