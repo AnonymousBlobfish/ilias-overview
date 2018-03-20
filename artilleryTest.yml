@@ -1,0 +1,22 @@
+config:
+  target: "http://54.215.228.139:80"
+  http: 
+    pool: 200 
+  phases:
+    - duration: 30
+      arrivalRate: 1
+      rampTo: 60
+    - duration: 30
+      arrivalRate: 60
+  processor: "./my-functions.js"
+
+scenarios:
+    - flow:
+      # call generateRandomData() to create the name, email, and password variables
+      - function: "generateRandomData"
+      - loop: 
+        - get:
+            url: "/restaurants/{{$randomNumber(1,10000000)}}/"
+        count: 200
+      # Print the data we're sending while debugging the script:
+      # - log: "Sent a request to /restaurants with {{ id }}"
