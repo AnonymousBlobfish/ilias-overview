@@ -1,5 +1,5 @@
-// const db = require('./../../db/db.js');
-const db = require('./../../db/dbSQL.js');
+const db = require('./../../db/db.js');
+// const db = require('./../../db/dbSQL.js');
 
 // const actions = {
 //   GET: function respondToGETRequest(req, res) {
@@ -27,7 +27,6 @@ const requestHandler = (req, res) => {
     if (err) {
       res.send(err);
     } else {
-      // console.log(result);
       res.send(result);
     }
   });

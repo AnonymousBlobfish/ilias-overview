@@ -43,7 +43,7 @@ const dbAddress = process.env.DB_ADDRESS || 'localhost';
 
 const createFakeEntry = (id) => {
   const fakerEntry = {};
-  fakerEntry.id = id;
+  fakerEntry._id = id;
   fakerEntry.name = faker.company.companyName();
   fakerEntry.tagline = faker.lorem.words();
   fakerEntry.type = faker.name.jobArea();
@@ -131,20 +131,17 @@ const seedDBwithFaker = (files) => {
 const bigFile = fs.createWriteStream('./10MilEntriesBIG.json');
 const create10MilFile = (n = 1) => {
   let flag = true;
-  while (n <= 1e7 && flag) {
-    if (n === 1) {
-      flag = bigFile.write('[' + JSON.stringify(createFakeEntry(n)));
-      n += 1;
-    } else if (n !== 1e7) {
-      flag = bigFile.write(JSON.stringify(createFakeEntry(n)) + ',');
+  while (n <= 10000000 && flag) {
+    if (n === 10000000) {
+      flag = bigFile.write(JSON.stringify(createFakeEntry(n)));
       n += 1;
     } else {
-      flag = bigFile.write(JSON.stringify(createFakeEntry(n)) + ']');
+      flag = bigFile.write(JSON.stringify(createFakeEntry(n)) + '\n');
       n += 1;
-      console.log('DONEDONEDONE');
     }
   }
   bigFile.once('drain', () => {
+    console.log(n);
     create10MilFile(n);
   });
 };
